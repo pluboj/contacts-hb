@@ -1,5 +1,6 @@
 package com.pluboj.contactmgr;
 
+import com.pluboj.contactmgr.model.Contact;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -15,6 +16,9 @@ public class App {
     }
 
     public static void main(String[] args) {
-
+        Contact contact = new Contact.ContactBuilder("Tim", "Novak")
+                .withEmail("tnovak@yahoo.com")
+                .withPhone(3142256655L)
+                .build();
     }
 }
