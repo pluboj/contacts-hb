@@ -1,6 +1,7 @@
 package com.pluboj.contactmgr;
 
 import com.pluboj.contactmgr.model.Contact;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -20,5 +21,11 @@ public class App {
                 .withEmail("tnovak@yahoo.com")
                 .withPhone(3142256655L)
                 .build();
+
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.save(contact);
+        session.getTransaction().commit();
+        session.close();
     }
 }
